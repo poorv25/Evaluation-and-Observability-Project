@@ -1,0 +1,12 @@
+test_mortgage_missing_fields (test_robustness.TestRobustness.test_mortgage_missing_fields) ... ok
+test_mortgage_reordered_fields (test_robustness.TestRobustness.test_mortgage_reordered_fields) ... ok
+test_policy_routing_handles_surrounding_spaces (test_robustness.TestRobustness.test_policy_routing_handles_surrounding_spaces) ... ok
+test_policy_routing_ignores_case (test_robustness.TestRobustness.test_policy_routing_ignores_case) ... ok
+test_policy_routing_unknown_phrase (test_robustness.TestRobustness.test_policy_routing_unknown_phrase) ... ok
+test_supply_chain_missing_transit_time (test_robustness.TestRobustness.test_supply_chain_missing_transit_time) ... ok
+test_supply_chain_negative_transit_time (test_robustness.TestRobustness.test_supply_chain_negative_transit_time) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.002s
+
+OK

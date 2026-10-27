@@ -1,0 +1,9 @@
+test_case_insensitive_labels (test_mortgage_extraction.TestMortgageExtraction.test_case_insensitive_labels) ... ok
+test_complete_document (test_mortgage_extraction.TestMortgageExtraction.test_complete_document) ... ok
+test_empty_document (test_mortgage_extraction.TestMortgageExtraction.test_empty_document) ... ok
+test_missing_property_address (test_mortgage_extraction.TestMortgageExtraction.test_missing_property_address) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+OK

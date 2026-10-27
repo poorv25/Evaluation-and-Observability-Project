@@ -1,0 +1,30 @@
+[
+  {
+    "case": "complete_document",
+    "expected": {
+      "borrower_name": "Alex Morgan",
+      "loan_amount": 250000.0,
+      "property_address": "10 Oak Street"
+    },
+    "extracted": {
+      "borrower_name": "Alex Morgan",
+      "loan_amount": 250000.0,
+      "property_address": "10 Oak Street"
+    },
+    "passed": true
+  },
+  {
+    "case": "missing_property_address",
+    "expected": {
+      "borrower_name": "Jamie Lee",
+      "loan_amount": 180500.0,
+      "property_address": null
+    },
+    "extracted": {
+      "borrower_name": "Jamie Lee",
+      "loan_amount": 180500.0,
+      "property_address": null
+    },
+    "passed": true
+  }
+]

@@ -1,0 +1,9 @@
+PASS: Python syntax — Source parses successfully
+PASS: Required item: def extract_mortgage_fields — Found
+PASS: Required item: REQUIRED_FIELDS — Found
+PASS: Required item: borrower_name — Found
+PASS: Required item: loan_amount — Found
+PASS: Required item: property_address — Found
+PASS: Required item: document-runs.txt — Found
+
+Passed: 7/7

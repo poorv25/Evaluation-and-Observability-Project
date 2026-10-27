@@ -1,0 +1,56 @@
+[
+  {
+    "input": "Check mortgage borrower details",
+    "route": "mortgage_extraction",
+    "expected": "mortgage_extraction",
+    "passed": true
+  },
+  {
+    "input": "Investigate a shipment delay",
+    "route": "supply_chain",
+    "expected": "supply_chain",
+    "passed": true
+  },
+  {
+    "input": "Review compliance policy",
+    "route": "policy_pipeline",
+    "expected": "policy_pipeline",
+    "passed": true
+  },
+  {
+    "input": "",
+    "route": "clarification",
+    "expected": "clarification",
+    "passed": true
+  },
+  {
+    "input": "   ",
+    "route": "clarification",
+    "expected": "clarification",
+    "passed": true
+  },
+  {
+    "input": "MORTGAGE",
+    "route": "mortgage_extraction",
+    "expected": "mortgage_extraction",
+    "passed": true
+  },
+  {
+    "input": "Review the policy for a delayed shipment",
+    "route": "supply_chain",
+    "expected": "supply_chain",
+    "passed": true
+  },
+  {
+    "input": "Check mortgage policy compliance",
+    "route": "mortgage_extraction",
+    "expected": "mortgage_extraction",
+    "passed": true
+  },
+  {
+    "input": "Tell me something interesting",
+    "route": "clarification",
+    "expected": "clarification",
+    "passed": true
+  }
+]

@@ -1,0 +1,6 @@
+Evaluation & Observability Capstone - Environment
+Python: 3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]
+Python implementation: CPython
+Platform: Windows-11-10.0.26300-SP0
+Git: git version 2.45.1.windows.1
+Pip: pip 26.1.2 from C:\Users\Asus\AppData\Local\Programs\Python\Python314\Lib\site-packages\pip (python 3.14)

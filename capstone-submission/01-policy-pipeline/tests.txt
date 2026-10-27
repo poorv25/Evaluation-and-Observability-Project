@@ -1,0 +1,15 @@
+test_ambiguous_mortgage_input (test_policy_pipeline.TestPolicyPipeline.test_ambiguous_mortgage_input) ... ok
+test_ambiguous_supply_chain_input (test_policy_pipeline.TestPolicyPipeline.test_ambiguous_supply_chain_input) ... ok
+test_case_insensitivity (test_policy_pipeline.TestPolicyPipeline.test_case_insensitivity) ... ok
+test_empty_input (test_policy_pipeline.TestPolicyPipeline.test_empty_input) ... ok
+test_evaluation_cases_pass (test_policy_pipeline.TestPolicyPipeline.test_evaluation_cases_pass) ... ok
+test_mortgage_routing (test_policy_pipeline.TestPolicyPipeline.test_mortgage_routing) ... ok
+test_policy_routing (test_policy_pipeline.TestPolicyPipeline.test_policy_routing) ... ok
+test_supply_chain_routing (test_policy_pipeline.TestPolicyPipeline.test_supply_chain_routing) ... ok
+test_unknown_input (test_policy_pipeline.TestPolicyPipeline.test_unknown_input) ... ok
+test_whitespace_input (test_policy_pipeline.TestPolicyPipeline.test_whitespace_input) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.001s
+
+OK

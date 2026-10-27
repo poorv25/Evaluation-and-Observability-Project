@@ -1,0 +1,10 @@
+test_delayed_shipment (test_supply_chain.TestSupplyChain.test_delayed_shipment) ... ok
+test_early_shipment (test_supply_chain.TestSupplyChain.test_early_shipment) ... ok
+test_evidence_is_recorded (test_supply_chain.TestSupplyChain.test_evidence_is_recorded) ... ok
+test_missing_expected_days (test_supply_chain.TestSupplyChain.test_missing_expected_days) ... ok
+test_on_time_shipment (test_supply_chain.TestSupplyChain.test_on_time_shipment) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.002s
+
+OK

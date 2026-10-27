@@ -1,0 +1,31 @@
+POLICY PIPELINE CALIBRATION REPORT
+===================================
+
+Measured results
+Total routing cases: 9
+Correct routing decisions: 9
+Incorrect routing decisions: 0
+Observed accuracy: 100.0%
+
+Observed routing decisions
+PASS: input='Check mortgage borrower details'; expected=mortgage_extraction; actual=mortgage_extraction
+PASS: input='Investigate a shipment delay'; expected=supply_chain; actual=supply_chain
+PASS: input='Review compliance policy'; expected=policy_pipeline; actual=policy_pipeline
+PASS: input=''; expected=clarification; actual=clarification
+PASS: input='   '; expected=clarification; actual=clarification
+PASS: input='MORTGAGE'; expected=mortgage_extraction; actual=mortgage_extraction
+PASS: input='Review the policy for a delayed shipment'; expected=supply_chain; actual=supply_chain
+PASS: input='Check mortgage policy compliance'; expected=mortgage_extraction; actual=mortgage_extraction
+PASS: input='Tell me something interesting'; expected=clarification; actual=clarification
+
+Calibration findings
+- Results reflect only the saved routing test cases.
+- Keyword rules are deterministic but may be brittle.
+- Overlapping keywords can make routing dependent on rule order.
+- Unknown and empty inputs are routed to clarification.
+- Passing these cases does not establish general routing accuracy.
+
+Recommended next steps
+- Expand tests with more boundary and ambiguous inputs.
+- Measure performance on a larger representative test set.
+- Refine overlapping rules based on observed failures.

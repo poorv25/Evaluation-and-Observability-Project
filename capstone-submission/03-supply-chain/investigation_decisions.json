@@ -1,0 +1,41 @@
+[
+  {
+    "shipment_id": "SHIP-001",
+    "finding": "Shipment delayed by 3 day(s)",
+    "delay_days": 3,
+    "supplier_status": "awaiting dispatch confirmation",
+    "evidence": [
+      "Shipment ID: SHIP-001",
+      "Expected transit days: 5",
+      "Actual transit days: 8",
+      "Supplier status: awaiting dispatch confirmation"
+    ],
+    "recommendation": "Confirm revised ETA with the supplier"
+  },
+  {
+    "shipment_id": "SHIP-002",
+    "finding": "No transit delay indicated by the supplied data",
+    "delay_days": 0,
+    "supplier_status": "dispatched",
+    "evidence": [
+      "Shipment ID: SHIP-002",
+      "Expected transit days: 4",
+      "Actual transit days: 4",
+      "Supplier status: dispatched"
+    ],
+    "recommendation": "Continue monitoring shipment status"
+  },
+  {
+    "shipment_id": "SHIP-003",
+    "finding": "Insufficient transit-time data to determine delay",
+    "delay_days": null,
+    "supplier_status": "unknown",
+    "evidence": [
+      "Shipment ID: SHIP-003",
+      "Expected transit days: None",
+      "Actual transit days: 7",
+      "Supplier status: unknown"
+    ],
+    "recommendation": "Obtain and verify expected and actual transit times"
+  }
+]

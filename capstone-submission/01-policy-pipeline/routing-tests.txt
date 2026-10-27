@@ -1,0 +1,11 @@
+PASS: 'Check mortgage borrower details' (expected=mortgage_extraction, actual=mortgage_extraction)
+PASS: 'Investigate a shipment delay' (expected=supply_chain, actual=supply_chain)
+PASS: 'Review compliance policy' (expected=policy_pipeline, actual=policy_pipeline)
+PASS: '' (expected=clarification, actual=clarification)
+PASS: '   ' (expected=clarification, actual=clarification)
+PASS: 'MORTGAGE' (expected=mortgage_extraction, actual=mortgage_extraction)
+PASS: 'Review the policy for a delayed shipment' (expected=supply_chain, actual=supply_chain)
+PASS: 'Check mortgage policy compliance' (expected=mortgage_extraction, actual=mortgage_extraction)
+PASS: 'Tell me something interesting' (expected=clarification, actual=clarification)
+
+Passed: 9/9

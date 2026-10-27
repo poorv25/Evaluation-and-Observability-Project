@@ -1,0 +1,20 @@
+SUPPLY CHAIN INVESTIGATION RUNS
+================================
+
+Shipment: SHIP-001
+Finding: Shipment delayed by 3 day(s)
+Delay days: 3
+Evidence: ["Shipment ID: SHIP-001", "Expected transit days: 5", "Actual transit days: 8", "Supplier status: awaiting dispatch confirmation"]
+Recommendation: Confirm revised ETA with the supplier
+
+Shipment: SHIP-002
+Finding: No transit delay indicated by the supplied data
+Delay days: 0
+Evidence: ["Shipment ID: SHIP-002", "Expected transit days: 4", "Actual transit days: 4", "Supplier status: dispatched"]
+Recommendation: Continue monitoring shipment status
+
+Shipment: SHIP-003
+Finding: Insufficient transit-time data to determine delay
+Delay days: None
+Evidence: ["Shipment ID: SHIP-003", "Expected transit days: None", "Actual transit days: 7", "Supplier status: unknown"]
+Recommendation: Obtain and verify expected and actual transit times

@@ -1,0 +1,14 @@
+MORTGAGE EXTRACTION DOCUMENT RUNS
+==================================
+
+Case: complete_document
+Expected: {"borrower_name": "Alex Morgan", "loan_amount": 250000.0, "property_address": "10 Oak Street"}
+Extracted: {"borrower_name": "Alex Morgan", "loan_amount": 250000.0, "property_address": "10 Oak Street"}
+Result: PASS
+
+Case: missing_property_address
+Expected: {"borrower_name": "Jamie Lee", "loan_amount": 180500.0, "property_address": null}
+Extracted: {"borrower_name": "Jamie Lee", "loan_amount": 180500.0, "property_address": null}
+Result: PASS
+
+Passed: 2/2

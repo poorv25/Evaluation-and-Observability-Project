@@ -1,31 +1,70 @@
 POLICY PIPELINE CALIBRATION REPORT
 ===================================
 
-Measured results
-Total routing cases: 9
-Correct routing decisions: 9
+Overall measured results
+Total routing cases: 20
+Correct routing decisions: 20
 Incorrect routing decisions: 0
 Observed accuracy: 100.0%
 
+SLICED EVALUATION RESULTS
+-----------------------------------
+
+Category: ambiguous_or_overlapping
+  Cases: 3
+  Correct: 3
+  Incorrect: 0
+  Accuracy: 100.0%
+
+Category: empty_input
+  Cases: 2
+  Correct: 2
+  Incorrect: 0
+  Accuracy: 100.0%
+
+Category: standard_routing
+  Cases: 9
+  Correct: 9
+  Incorrect: 0
+  Accuracy: 100.0%
+
+Category: unknown_or_conflicting
+  Cases: 6
+  Correct: 6
+  Incorrect: 0
+  Accuracy: 100.0%
+
 Observed routing decisions
-PASS: input='Check mortgage borrower details'; expected=mortgage_extraction; actual=mortgage_extraction
-PASS: input='Investigate a shipment delay'; expected=supply_chain; actual=supply_chain
-PASS: input='Review compliance policy'; expected=policy_pipeline; actual=policy_pipeline
-PASS: input=''; expected=clarification; actual=clarification
-PASS: input='   '; expected=clarification; actual=clarification
-PASS: input='MORTGAGE'; expected=mortgage_extraction; actual=mortgage_extraction
-PASS: input='Review the policy for a delayed shipment'; expected=supply_chain; actual=supply_chain
-PASS: input='Check mortgage policy compliance'; expected=mortgage_extraction; actual=mortgage_extraction
-PASS: input='Tell me something interesting'; expected=clarification; actual=clarification
+PASS: slice=standard_routing; input='Check mortgage borrower details'; expected=mortgage_extraction; actual=mortgage_extraction
+PASS: slice=standard_routing; input='Investigate a shipment delay'; expected=supply_chain; actual=supply_chain
+PASS: slice=standard_routing; input='Review compliance policy'; expected=policy_pipeline; actual=policy_pipeline
+PASS: slice=standard_routing; input='MORTGAGE'; expected=mortgage_extraction; actual=mortgage_extraction
+PASS: slice=standard_routing; input='Supplier delivery delay'; expected=supply_chain; actual=supply_chain
+PASS: slice=standard_routing; input='Please check the routing policy'; expected=policy_pipeline; actual=policy_pipeline
+PASS: slice=empty_input; input=''; expected=clarification; actual=clarification
+PASS: slice=empty_input; input='   '; expected=clarification; actual=clarification
+PASS: slice=ambiguous_or_overlapping; input='Review the policy for a delayed shipment'; expected=supply_chain; actual=supply_chain
+PASS: slice=ambiguous_or_overlapping; input='Check mortgage policy compliance'; expected=mortgage_extraction; actual=mortgage_extraction
+PASS: slice=unknown_or_conflicting; input='Mortgage loan for a supplier shipment policy'; expected=clarification; actual=clarification
+PASS: slice=ambiguous_or_overlapping; input='Review policy for supplier delivery delay'; expected=supply_chain; actual=supply_chain
+PASS: slice=unknown_or_conflicting; input='Mortgage borrower and shipment delay'; expected=clarification; actual=clarification
+PASS: slice=unknown_or_conflicting; input='Tell me something interesting'; expected=clarification; actual=clarification
+PASS: slice=unknown_or_conflicting; input='Please review this request'; expected=clarification; actual=clarification
+PASS: slice=unknown_or_conflicting; input='!!! ???'; expected=clarification; actual=clarification
+PASS: slice=standard_routing; input='Mortgage mortgage borrower'; expected=mortgage_extraction; actual=mortgage_extraction
+PASS: slice=standard_routing; input='SHIPMENT shipment delay'; expected=supply_chain; actual=supply_chain
+PASS: slice=standard_routing; input='CoMpLiAnCe PoLiCy'; expected=policy_pipeline; actual=policy_pipeline
+PASS: slice=unknown_or_conflicting; input='Supplier shipment mortgage application'; expected=clarification; actual=clarification
 
 Calibration findings
-- Results reflect only the saved routing test cases.
-- Keyword rules are deterministic but may be brittle.
-- Overlapping keywords can make routing dependent on rule order.
-- Unknown and empty inputs are routed to clarification.
-- Passing these cases does not establish general routing accuracy.
+- Metrics describe only the saved routing test cases.
+- Slice labels use simple keyword-based heuristics.
+- Small slice sizes may make accuracy unstable.
+- High accuracy on these cases does not prove general accuracy.
+- This report measures observed accuracy, not probabilistic confidence calibration.
 
 Recommended next steps
-- Expand tests with more boundary and ambiguous inputs.
-- Measure performance on a larger representative test set.
-- Refine overlapping rules based on observed failures.
+- Add more representative cases to every slice.
+- Include ambiguous cases with and without overlapping keywords.
+- Review failures separately for each category.
+- Re-run evaluation after changing routing rules.

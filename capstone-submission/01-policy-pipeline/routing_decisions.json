@@ -3,54 +3,300 @@
     "input": "Check mortgage borrower details",
     "route": "mortgage_extraction",
     "expected": "mortgage_extraction",
-    "passed": true
+    "passed": true,
+    "attempts_used": 1,
+    "attempt_history": [
+      {
+        "attempt": 1,
+        "route": "mortgage_extraction",
+        "valid": true,
+        "feedback": "Route is valid."
+      }
+    ]
   },
   {
     "input": "Investigate a shipment delay",
     "route": "supply_chain",
     "expected": "supply_chain",
-    "passed": true
+    "passed": true,
+    "attempts_used": 1,
+    "attempt_history": [
+      {
+        "attempt": 1,
+        "route": "supply_chain",
+        "valid": true,
+        "feedback": "Route is valid."
+      }
+    ]
   },
   {
     "input": "Review compliance policy",
     "route": "policy_pipeline",
     "expected": "policy_pipeline",
-    "passed": true
-  },
-  {
-    "input": "",
-    "route": "clarification",
-    "expected": "clarification",
-    "passed": true
-  },
-  {
-    "input": "   ",
-    "route": "clarification",
-    "expected": "clarification",
-    "passed": true
+    "passed": true,
+    "attempts_used": 1,
+    "attempt_history": [
+      {
+        "attempt": 1,
+        "route": "policy_pipeline",
+        "valid": true,
+        "feedback": "Route is valid."
+      }
+    ]
   },
   {
     "input": "MORTGAGE",
     "route": "mortgage_extraction",
     "expected": "mortgage_extraction",
-    "passed": true
+    "passed": true,
+    "attempts_used": 1,
+    "attempt_history": [
+      {
+        "attempt": 1,
+        "route": "mortgage_extraction",
+        "valid": true,
+        "feedback": "Route is valid."
+      }
+    ]
+  },
+  {
+    "input": "Supplier delivery delay",
+    "route": "supply_chain",
+    "expected": "supply_chain",
+    "passed": true,
+    "attempts_used": 1,
+    "attempt_history": [
+      {
+        "attempt": 1,
+        "route": "supply_chain",
+        "valid": true,
+        "feedback": "Route is valid."
+      }
+    ]
+  },
+  {
+    "input": "Please check the routing policy",
+    "route": "policy_pipeline",
+    "expected": "policy_pipeline",
+    "passed": true,
+    "attempts_used": 1,
+    "attempt_history": [
+      {
+        "attempt": 1,
+        "route": "policy_pipeline",
+        "valid": true,
+        "feedback": "Route is valid."
+      }
+    ]
+  },
+  {
+    "input": "",
+    "route": "clarification",
+    "expected": "clarification",
+    "passed": true,
+    "attempts_used": 1,
+    "attempt_history": [
+      {
+        "attempt": 1,
+        "route": "clarification",
+        "valid": true,
+        "feedback": "Route is valid."
+      }
+    ]
+  },
+  {
+    "input": "   ",
+    "route": "clarification",
+    "expected": "clarification",
+    "passed": true,
+    "attempts_used": 1,
+    "attempt_history": [
+      {
+        "attempt": 1,
+        "route": "clarification",
+        "valid": true,
+        "feedback": "Route is valid."
+      }
+    ]
   },
   {
     "input": "Review the policy for a delayed shipment",
     "route": "supply_chain",
     "expected": "supply_chain",
-    "passed": true
+    "passed": true,
+    "attempts_used": 1,
+    "attempt_history": [
+      {
+        "attempt": 1,
+        "route": "supply_chain",
+        "valid": true,
+        "feedback": "Route is valid."
+      }
+    ]
   },
   {
     "input": "Check mortgage policy compliance",
     "route": "mortgage_extraction",
     "expected": "mortgage_extraction",
-    "passed": true
+    "passed": true,
+    "attempts_used": 1,
+    "attempt_history": [
+      {
+        "attempt": 1,
+        "route": "mortgage_extraction",
+        "valid": true,
+        "feedback": "Route is valid."
+      }
+    ]
+  },
+  {
+    "input": "Mortgage loan for a supplier shipment policy",
+    "route": "clarification",
+    "expected": "clarification",
+    "passed": true,
+    "attempts_used": 1,
+    "attempt_history": [
+      {
+        "attempt": 1,
+        "route": "clarification",
+        "valid": true,
+        "feedback": "Route is valid."
+      }
+    ]
+  },
+  {
+    "input": "Review policy for supplier delivery delay",
+    "route": "supply_chain",
+    "expected": "supply_chain",
+    "passed": true,
+    "attempts_used": 1,
+    "attempt_history": [
+      {
+        "attempt": 1,
+        "route": "supply_chain",
+        "valid": true,
+        "feedback": "Route is valid."
+      }
+    ]
+  },
+  {
+    "input": "Mortgage borrower and shipment delay",
+    "route": "clarification",
+    "expected": "clarification",
+    "passed": true,
+    "attempts_used": 1,
+    "attempt_history": [
+      {
+        "attempt": 1,
+        "route": "clarification",
+        "valid": true,
+        "feedback": "Route is valid."
+      }
+    ]
   },
   {
     "input": "Tell me something interesting",
     "route": "clarification",
     "expected": "clarification",
-    "passed": true
+    "passed": true,
+    "attempts_used": 1,
+    "attempt_history": [
+      {
+        "attempt": 1,
+        "route": "clarification",
+        "valid": true,
+        "feedback": "Route is valid."
+      }
+    ]
+  },
+  {
+    "input": "Please review this request",
+    "route": "clarification",
+    "expected": "clarification",
+    "passed": true,
+    "attempts_used": 1,
+    "attempt_history": [
+      {
+        "attempt": 1,
+        "route": "clarification",
+        "valid": true,
+        "feedback": "Route is valid."
+      }
+    ]
+  },
+  {
+    "input": "!!! ???",
+    "route": "clarification",
+    "expected": "clarification",
+    "passed": true,
+    "attempts_used": 1,
+    "attempt_history": [
+      {
+        "attempt": 1,
+        "route": "clarification",
+        "valid": true,
+        "feedback": "Route is valid."
+      }
+    ]
+  },
+  {
+    "input": "Mortgage mortgage borrower",
+    "route": "mortgage_extraction",
+    "expected": "mortgage_extraction",
+    "passed": true,
+    "attempts_used": 1,
+    "attempt_history": [
+      {
+        "attempt": 1,
+        "route": "mortgage_extraction",
+        "valid": true,
+        "feedback": "Route is valid."
+      }
+    ]
+  },
+  {
+    "input": "SHIPMENT shipment delay",
+    "route": "supply_chain",
+    "expected": "supply_chain",
+    "passed": true,
+    "attempts_used": 1,
+    "attempt_history": [
+      {
+        "attempt": 1,
+        "route": "supply_chain",
+        "valid": true,
+        "feedback": "Route is valid."
+      }
+    ]
+  },
+  {
+    "input": "CoMpLiAnCe PoLiCy",
+    "route": "policy_pipeline",
+    "expected": "policy_pipeline",
+    "passed": true,
+    "attempts_used": 1,
+    "attempt_history": [
+      {
+        "attempt": 1,
+        "route": "policy_pipeline",
+        "valid": true,
+        "feedback": "Route is valid."
+      }
+    ]
+  },
+  {
+    "input": "Supplier shipment mortgage application",
+    "route": "clarification",
+    "expected": "clarification",
+    "passed": true,
+    "attempts_used": 1,
+    "attempt_history": [
+      {
+        "attempt": 1,
+        "route": "clarification",
+        "valid": true,
+        "feedback": "Route is valid."
+      }
+    ]
   }
 ]

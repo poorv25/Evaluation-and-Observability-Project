@@ -13,29 +13,160 @@ REQUIRED_FIELDS = [
 ]
 
 
+def classify_mortgage_document(document: str) -> dict[str, str | bool]:
+    """Classify a document before attempting field extraction."""
+    labels = {
+        "borrower_name": r"Borrower\s*:",
+        "loan_amount": r"Loan Amount\s*:",
+        "property_address": r"Property Address\s*:",
+    }
+
+    found_fields = [
+        field
+        for field, pattern in labels.items()
+        if re.search(pattern, document, re.IGNORECASE)
+    ]
+
+    is_mortgage = bool(found_fields) and (
+        "loan_amount" in found_fields or "borrower_name" in found_fields
+    )
+
+    return {
+        "document_type": "mortgage" if is_mortgage else "unknown",
+        "is_mortgage": is_mortgage,
+        "fields_detected": len(found_fields) > 0,
+    }
+
+
 def extract_mortgage_fields(document: str) -> dict:
-    """Extract selected fields from a consistently formatted text document."""
+    """Extract mortgage fields and reject invalid loan amounts."""
     patterns = {
         "borrower_name": r"Borrower:\s*(.+)",
         "loan_amount": r"Loan Amount:\s*\$?([\d,]+(?:\.\d{2})?)",
         "property_address": r"Property Address:\s*(.+)",
     }
 
-    extracted = {}
+    extracted: dict[str, str | float | None] = {}
 
     for field, pattern in patterns.items():
         match = re.search(pattern, document, re.IGNORECASE)
-        if match:
-            value = match.group(1).strip()
 
-            if field == "loan_amount":
-                value = float(value.replace(",", ""))
-
-            extracted[field] = value
-        else:
+        if not match:
             extracted[field] = None
+            continue
+
+        value = match.group(1).strip()
+
+        if field == "loan_amount":
+            try:
+                amount = float(value.replace(",", ""))
+            except ValueError:
+                extracted[field] = None
+                continue
+
+            extracted[field] = amount if amount > 0 else None
+        else:
+            extracted[field] = value or None
 
     return extracted
+
+
+def validate_monthly_income(
+    income: dict[str, float],
+    tolerance: float = 1.0,
+) -> dict[str, float | bool | None]:
+    """Check whether reported monthly income matches its components."""
+    components = [
+        value
+        for key, value in income.items()
+        if key.endswith("_monthly") and key != "reported_monthly_total"
+    ]
+
+    if not components:
+        return {
+            "calculated_total": None,
+            "valid": False,
+        }
+
+    calculated_total = sum(components)
+    reported_total = income.get("reported_monthly_total")
+
+    valid = (
+        isinstance(reported_total, (int, float))
+        and abs(calculated_total - reported_total) <= tolerance
+    )
+
+    return {
+        "calculated_total": calculated_total,
+        "valid": valid,
+    }
+
+
+def process_mortgage_document(document: str) -> dict:
+    """Classify a document, then extract and validate its fields."""
+    classification = classify_mortgage_document(document)
+
+    if not classification["is_mortgage"]:
+        return {
+            "classification": classification,
+            "extracted_fields": {},
+            "missing_fields": REQUIRED_FIELDS.copy(),
+            "status": "rejected_non_mortgage",
+        }
+
+    extracted = extract_mortgage_fields(document)
+
+    missing_fields = [
+        field for field in REQUIRED_FIELDS if extracted.get(field) is None
+    ]
+
+    status = "complete" if not missing_fields else "incomplete"
+
+    return {
+        "classification": classification,
+        "extracted_fields": extracted,
+        "missing_fields": missing_fields,
+        "status": status,
+    }
+
+
+def process_mortgage_document_with_retry(
+    document: str,
+    max_attempts: int = 3,
+) -> dict:
+    """Retry validation up to a limit and record feedback for each attempt."""
+    if max_attempts < 1:
+        raise ValueError("max_attempts must be at least 1")
+
+    attempt_history = []
+    result = {}
+
+    for attempt in range(1, max_attempts + 1):
+        result = process_mortgage_document(document)
+
+        attempt_record = {
+            "attempt": attempt,
+            "status": result["status"],
+            "missing_fields": result["missing_fields"],
+            "validation_feedback": (
+                "All required fields are present."
+                if result["status"] == "complete"
+                else (
+                    "Document is not recognized as a mortgage document."
+                    if result["status"] == "rejected_non_mortgage"
+                    else "Missing required fields: "
+                    + ", ".join(result["missing_fields"])
+                )
+            ),
+        }
+        attempt_history.append(attempt_record)
+
+        if result["status"] != "incomplete":
+            break
+
+    result["attempts"] = len(attempt_history)
+    result["attempt_history"] = attempt_history
+    return result
 
 
 def main():

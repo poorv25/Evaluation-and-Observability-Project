@@ -6,10 +6,11 @@
     "supplier_status": "awaiting dispatch confirmation",
     "evidence": [
       "Shipment ID: SHIP-001",
-      "Expected transit days: 5",
-      "Actual transit days: 8",
-      "Supplier status: awaiting dispatch confirmation"
+      "Source scenario_input: expected_days=5, actual_days=8, supplier_status=awaiting dispatch confirmation"
     ],
+    "source_failures": [],
+    "conflicts": [],
+    "sources_available": 1,
     "recommendation": "Confirm revised ETA with the supplier"
   },
   {
@@ -19,10 +20,11 @@
     "supplier_status": "dispatched",
     "evidence": [
       "Shipment ID: SHIP-002",
-      "Expected transit days: 4",
-      "Actual transit days: 4",
-      "Supplier status: dispatched"
+      "Source scenario_input: expected_days=4, actual_days=4, supplier_status=dispatched"
     ],
+    "source_failures": [],
+    "conflicts": [],
+    "sources_available": 1,
     "recommendation": "Continue monitoring shipment status"
   },
   {
@@ -32,10 +34,48 @@
     "supplier_status": "unknown",
     "evidence": [
       "Shipment ID: SHIP-003",
-      "Expected transit days: None",
-      "Actual transit days: 7",
-      "Supplier status: unknown"
+      "Source scenario_input: expected_days=None, actual_days=7, supplier_status=unknown"
     ],
+    "source_failures": [],
+    "conflicts": [],
+    "sources_available": 1,
     "recommendation": "Obtain and verify expected and actual transit times"
+  },
+  {
+    "shipment_id": "SHIP-004",
+    "finding": "Conflicting source evidence; delay conclusion is unverified",
+    "delay_days": null,
+    "supplier_status": "conflicting",
+    "evidence": [
+      "Shipment ID: SHIP-004",
+      "Source carrier_tracking: expected_days=5, actual_days=8, supplier_status=dispatched",
+      "Source supplier_portal: expected_days=5, actual_days=6, supplier_status=awaiting confirmation",
+      "Conflict: Sources disagree on actual transit time: [6, 8]",
+      "Conflict: Sources disagree on supplier status: ['awaiting confirmation', 'dispatched']"
+    ],
+    "source_failures": [],
+    "conflicts": [
+      "Sources disagree on actual transit time: [6, 8]",
+      "Sources disagree on supplier status: ['awaiting confirmation', 'dispatched']"
+    ],
+    "sources_available": 2,
+    "recommendation": "Reconcile the conflicting sources before making an operational decision"
+  },
+  {
+    "shipment_id": "SHIP-005",
+    "finding": "Shipment delayed by 3 day(s)",
+    "delay_days": 3,
+    "supplier_status": "dispatched",
+    "evidence": [
+      "Shipment ID: SHIP-005",
+      "Source carrier_tracking: expected_days=5, actual_days=8, supplier_status=dispatched",
+      "Source failure: supplier_portal: source unavailable (connection timeout)"
+    ],
+    "source_failures": [
+      "supplier_portal: source unavailable (connection timeout)"
+    ],
+    "conflicts": [],
+    "sources_available": 1,
+    "recommendation": "Confirm revised ETA with the supplier. Verify unavailable sources before relying on this assessment"
   }
 ]

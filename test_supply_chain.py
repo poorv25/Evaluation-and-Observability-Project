@@ -68,6 +68,57 @@ class TestSupplyChain(unittest.TestCase):
         self.assertIn("SHIP-005", result["evidence"][0])
         self.assertTrue(result["recommendation"])
 
+    def test_conflicting_source_data_is_flagged(self):
+        result = investigate_supply_chain(
+            {
+                "shipment_id": "SHIP-006",
+                "sources": [
+                    {
+                        "source": "carrier",
+                        "status": "available",
+                        "expected_days": 5,
+                        "actual_days": 8,
+                        "supplier_status": "delayed",
+                    },
+                    {
+                        "source": "supplier",
+                        "status": "available",
+                        "expected_days": 5,
+                        "actual_days": 6,
+                        "supplier_status": "on schedule",
+                    },
+                ],
+            }
+        )
+
+        self.assertTrue(result["conflicts"])
+        self.assertIn("SHIP-006", result["evidence"][0])
+
+    def test_unavailable_source_is_recorded(self):
+        result = investigate_supply_chain(
+            {
+                "shipment_id": "SHIP-007",
+                "sources": [
+                    {
+                        "source": "carrier",
+                        "status": "unavailable",
+                        "error": "Connection timeout",
+                    },
+                    {
+                        "source": "supplier",
+                        "status": "available",
+                        "expected_days": 5,
+                        "actual_days": 7,
+                        "supplier_status": "delayed",
+                    },
+                ],
+            }
+        )
+
+        self.assertTrue(result["source_failures"])
+        self.assertEqual(result["delay_days"], 2)
+        self.assertTrue(result["recommendation"])
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
